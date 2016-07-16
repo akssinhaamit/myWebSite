@@ -1,0 +1,554 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="loginApp">
+
+<head>
+    <meta charset="utf-8">
+    <title>Amit Sinha</title>
+    <meta name="description" content="A professional summary of Mr. Amit Sinha" />
+    <meta name="robots" content="noodp" />
+    <meta name="google" content="nositelinkssearchbox" />
+    <meta name="google-site-verification" content="3Kfl7OrB6sHEmQF8sOpBWcJ7FwMw9kAamaJy5mCKtJs" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="keywords" content="HTML,CSS,XML,JavaScript">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="public/css/styles.css" />
+    <link rel="stylesheet" href="public/css/animate.css" />
+    <link rel="icon" type="image/png" href="/public/img/Amit.png" sizes="16x16">
+    <link rel="shortcut icon" href="/public/img/favicons/favicon.ico">
+    
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular.min.js"></script>
+    <script type="text/javascript">
+        var totalCount = 12;
+
+        function ChangeIt() {
+            var num = Math.ceil(Math.random() * totalCount);
+            document.body.background = 'public/img/' + num + '.jpg';
+            document.body.style.backgroundRepeat = "repeat"; // Background repeat
+        }
+    </script>
+</head>
+
+<body ng-controller="SampleCtrl">
+    
+    <nav class="navbar navbar-trans navbar-fixed-top" role="navigation">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapsible">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                 
+            </div>
+            <div class="navbar-collapse collapse" id="navbar-collapsible">
+                <a class="navbar-brand" href="#section1"><img src="https://s3-eu-west-1.amazonaws.com/aksamit/Amit.png"></a>
+                <ul class="nav navbar-nav navbar-left">
+                    <li><a href="#section2">Professional Summary</a></li>
+                    <li><a href="#section3">Employment History</a></li>
+                    <li><a href="#section4">Skillset</a></li>
+                    <li><a href="http://akssinhaamit.github.io/">MyBlog</a></li>
+                    <li>&nbsp;</li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right" ng-show="!authData">
+                    <li><a href="#" data-toggle="modal" data-target="#myModal"><span class="glyphicon glyphicon-log-in"></span><i>LogIn</i></a></li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right" ng-show="authData">
+                    <li><a href="#" data-toggle="modal" data-target="#myModal"><span class="glyphicon glyphicon-log-out"></span><i>Hi {{authData.name }} - LogOut </i></a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <section class="container-fluid" id="section1">
+        <div class="v-center">
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <div class="row">
+                <div class="col-md-offset-1 zoomInDown animated">
+                    <img src="public/img/amit.jpg" class="img-circle" alt="Cinque Terre" width="125" height="125">
+                </div>
+                <div class="col-md-4 col-md-offset-1 zoomInDown animated" style="display: inline">
+                    <h1>Amit Sinha</h1>
+                    <h5> &nbsp;PRINCE 2 ® Practitioner</h5>
+                    <h3 class="text-left">Technical Consultant</h3> &nbsp; &nbsp; &nbsp;
+                    <h4>London, UK</h4>
+                </div>
+            </div>
+        </div>
+        <br>
+        <br>
+        <div class="row">
+            <div class="col-sm-2 col-sm-offset-1">
+                <i class="fa fa-phone-square"></i> &nbsp; &nbsp;
+                <h5><U>PHONE</U></h5>
+                <p><a href="tel:+447440194567">07440194567</a>
+            </div>
+            <div class="col-sm-2">
+                <i class="fa fa-envelope-o"></i> &nbsp; &nbsp;
+                <h5><U>EMAIL</U></h5>
+                <p>
+
+                    <a href="mailto:aks.sinha.amit@gmail.com">aks.sinha.amit@gmail.com</a>
+                </p>
+            </div>
+            <div class="col-sm-2">
+                <i class="fa fa-github"></i> &nbsp; &nbsp;
+                <h5><U>SOCIAL</U></h5>
+
+                <p><a href="https://uk.linkedin.com/in/amit-sinha-91101197"><i class="fa fa-linkedin-square"></i> LinkedIn</a></p>
+                <p><a href="https://github.com/akssinhaamit"><i class="fa fa-github"></i> github</a></p>
+
+            </div>
+            <div class="col-sm-2" ng-show="!authData">
+                <i class="fa fa-download"></i> &nbsp; &nbsp;
+                <h5><U>Latest Resume</U></h5>
+                <p><a href="tel:+447440194567" data-dismiss="modal" data-toggle="modal" data-target="#myModalTwo"><i class="fa fa-file-pdf-o"></i>.pdf</a>
+                    <p><a href="tel:+447440194567" data-dismiss="modal" data-toggle="modal" data-target="#myModalTwo"><i class="fa fa-file-word-o"></i>.doc</a>
+            </div>
+            <div class="col-sm-2" ng-show="authData">
+                <i class="fa fa-download"></i> &nbsp; &nbsp;
+                <h5><U>Latest Resume</U></h5>
+                <p><a href="https://s3-eu-west-1.amazonaws.com/aksamit/Amit+Sinha+Resume.pdf" download><i class="fa fa-file-pdf-o"></i>.pdf</a>
+                    <p><a href="https://s3-eu-west-1.amazonaws.com/aksamit/Amit+Sinha+Resume.docx" download><i class="fa fa-file-word-o"></i>.doc</a>
+            </div>
+        </div>
+        <br>
+        <a href="#section2">
+            <div class="scroll-down bounceInDown animated">
+                <i class="flaticon solid down-2"></i>
+                <span>
+                <i class="fa fa-angle-down fa-2x"></i>
+                                    
+            </span>
+            </div>
+        </a>
+    </section>
+    <section class="container-fluid" id="section2">
+        <div class="container">
+            <div class="row">
+                <h2>Professional Summary</h2>
+                <h4>Technical Consultant/ Lead Developer with KAINOS with an experience of 10 years in java/J2EE programming and leadership. Proven ability to lead project teams to successfully deliver agreed-upon solutions of the highest quality, often in complex and challenging customer environments using agile methodology like Scrum, Kanban, Extreme Programming and Lean.</h4>
+                <h4>Starting as a Software Engineer, I have a proven track record in Designing, coding, Testing, Debugging and Support. Experience with some of the most preferred technologies, frameworks, open source and BRMS tools and I like to be hands on with the technology. Currently I am working with the open source stack and have an extensive experience with MVC software architectural pattern.</h4>
+                <h4>My previous experience of Project Lead (Technical Project Manager) and Development Manager makes me a keen technical leader, with expertise in managing entire development process to deliver project-objectives with key focus on quality and time by ensuring a proper distribution of ownership among the team members. Proficient in development and streamlining development process with proven ability to enhance application effectiveness and meet functional requirements within time and quality with precision along with managing stakeholder expectations.</h4>
+                <h4>I have worked with leaders like Wipro, iGate, State Farm, AT&T, GLND and many teams of varying size and backgrounds along my career. 
+I define myself as a leader and motivator with a capability to achieve strong results through a combination of problem-solving skills, excellent communication, excellent interpersonal skills, effective team player, quick-learning skills and extremely high commitment level.</h4>
+                <h4></h4>
+            </div>
+            <!--/container-->
+        </div>
+        <br>
+        <a href="#section3">
+            <div class="scroll-down-white slideInUp animated">
+                <i class="flaticon solid down-2"></i>
+                <span>
+                <i class="fa fa-angle-down fa-2x"></i>
+                                    
+            </span>
+            </div>
+        </a>
+    </section>
+
+    <section class="container-fluid" id="section3">
+        <div class="row">
+            <div class="col-sm-4">
+                <div class="text-center">
+                    <a href="">
+                        <img style="width:160px;" class="img-responsive center-block" src="public/img/companies/atnt.jpg">
+                    </a>
+                    <h3 class="text-center"></h3>
+                </div>
+            </div>
+            <div class="col-sm-4">
+                <div class="text-center">
+                    <a href="">
+                        <img style="width:160px;" class="img-responsive center-block" src="public/img/companies/statefarm.png">
+                    </a>
+                    <h3 class="text-center"></h3>
+                </div>
+            </div>
+            <div class="col-sm-4">
+                <div class="text-center">
+                    <a href="">
+                        <img style="width:160px;" class="img-responsive center-block" src="public/img/companies/Wipro.png">
+                    </a>
+                    <h3 class="text-center"></h3>
+                </div>
+            </div>
+            <div class="col-sm-4">
+                <div class="text-center">
+                    <a href="">
+                        <img style="width:160px;" class="img-responsive center-block" src="public/img/companies/igate.jpg">
+                    </a>
+                    <h3 class="text-center"></h3>
+                </div>
+            </div>
+            <div class="col-sm-4">
+                <div class="text-center">
+                    <a href="">
+                        <img style="width:160px;" class="img-responsive center-block" src="public/img/companies/neustar.jpg">
+                    </a>
+                    <h3 class="text-center"></h3>
+                </div>
+            </div>
+            <div class="col-sm-4">
+                <div class="text-center">
+                    <a href="">
+
+                        <img style="width:160px;" class="img-responsive center-block" src="public/img/companies/kainos.jpeg">
+                    </a>
+                    <h3 class="text-center"></h3>
+                </div>
+            </div>
+            <div class="col-sm-4">
+                <div class="text-center">
+                    <a href="">
+                        <img style="width:160px;" class="img-responsive center-block" src="public/img/companies/fundtech.jpg">
+                    </a>
+                    <h3 class="text-center"></h3>
+                </div>
+            </div>
+            <div class="col-sm-4">
+                <div class="text-center">
+                    <a href="">
+                        <img style="width:160px;" class="img-responsive center-block" src="public/img/companies/dwp.jpg">
+                    </a>
+                    <h3 class="text-center"></h3>
+                </div>
+            </div>
+            <div class="col-sm-4">
+                <div class="text-center">
+                    <a href="">
+                        <img style="width:160px;" class="img-responsive center-block" src="public/img/companies/dvsa.jpg">
+                    </a>
+                    <h3 class="text-center"></h3>
+                </div>
+            </div>
+            <div class="col-sm-4">
+                <div class="text-center">
+                    <a href="">
+                        <img style="width:160px;" class="img-responsive center-block" src="public/img/companies/gl.jpg">
+                    </a>
+                    <h3 class="text-center"></h3>
+                </div>
+            </div>
+            <div class="col-sm-4">
+                <div class="text-center">
+                    <a href="">
+                        <img style="width:160px;" class="img-responsive center-block" src="public/img/companies/dnvgl.png">
+                    </a>
+                    <h3 class="text-center"></h3>
+                </div>
+            </div>
+            <div class="col-sm-4">
+                <div class="text-center">
+                    <a href="">
+                        <img style="width:160px;" class="img-responsive center-block" src="public/img/companies/patni.jpg">
+                    </a>
+                    <h3 class="text-center"></h3>
+                </div>
+            </div>
+        </div>
+        <br>
+        <a href="#section4">
+            <div class="scroll-down bounceInDown animated">
+                <i class="flaticon solid down-2"></i>
+                <span>
+                <i class="fa fa-angle-down fa-2x"></i>
+                                    
+            </span>
+            </div>
+        </a>
+    </section>
+    <section class="container-fluid" id="section4">
+        <div class="container">
+
+
+
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="page-header">
+                        <h2>Skills</h2>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-4 col-lg-offset-0">
+                    <input type="search" id="search" value="" class="form-control" placeholder="Search Skill">
+                </div>
+            </div>
+
+
+
+            <div class="row">
+                <div class="col-lg-12">
+                    <table class="table" id="table">
+                        <thead>
+                            <tr>
+                                <th></th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Core Skills</td>
+                                <td>Software Design, Development, Enhancement and Maintenance</td>
+                            </tr>
+                            <tr>
+                                <td>Personal Skills</td>
+                                <td>Effective team player, Excellent Communication, Problem solving skills, Quick learner, Extremely high commitment level, Focus and Goal Oriented</td>
+                            </tr>
+                            <tr>
+                                <td>Area of Expertise</td>
+                                <td>Strong Java/J2EE experience, Strong Project management skills, Solution development and design, Agile Methodology, Software Estimation, Managing Stakeholders Expectations and timely deliveries.</td>
+                            </tr>
+                            <tr>
+                                <td>OS</td>
+                                <td>Mac OS X(Unix), Linux and Windows</td>
+                            </tr>
+                            <tr>
+                                <td>Technology</td>
+                                <td>Java, Python, Scala, Spring, Hibernate, Web Services (REST and SOAP), JPA, Servlet, Quartz, Maven, Ant, Groovy</td>
+                            </tr>
+                            <tr>
+                                <td>BRMS</td>
+                                <td>Drools</td>
+                            </tr>
+                            <tr>
+                                <td>GUI/ Web Development/ Libraries</td>
+                                <td>HTML 5, Bootstrap Java Script, AngularJS, NodeJS, jQuery, EXTJS, CSS, XSL, XML, Ajax, Flex, JSPA</td>
+                            </tr>
+                            <tr>
+                                <td>Data Base</td>
+                                <td>Oracle 11i, MySQL, MS Sql, PostgreSQL, MongoDB</td>
+                            </tr>
+                            <tr>
+                                <td>Tools & Utilities and Servers</td>
+                                <td>Git, VSS, SVN, RSA(Rational Software Architect), Clear Case, Clear Quest, WSAD(Web-sphere Studio Application), Eclipse, MyEclipse, IntelliJ, SONAR, JBoss, Jetty, Apache Tomcat, IBM WebSphere</td>
+                            </tr>
+                            <tr>
+                                <td>Domain Knowledge</td>
+                                <td>Gov. Digital, Banking and Finance, Oil and Gas/ Energy, Insurance and Telecom</td>
+                            </tr>
+                            <tr>
+                                <td>Acquaintance</td>
+                                <td>PHP, AWS (Amazon Web Services), Microsoft Azure, BPMN, Docker, Puppet</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+            </div>
+        </div>
+        <br>
+        <a href="#section1">
+            <div class="scroll-top">
+                <i class="flaticon solid down-2"></i>
+                <span>
+                <i class="fa fa-angle-up fa-2x"></i>
+                                    
+            </span>
+            </div>
+        </a>
+
+    </section>
+    <div class="scroll-up">
+        <a href="#"><i class="fa fa-angle-up"></i></a>
+    </div>
+    <!--Login Page Start
+     ********************************************************************-->
+    <div id="myModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                    <h2 class="text-center"><br>Login </h2>
+                    <h5>to see example projects by me</h5>
+                </div>
+                <div class="modal-body row">
+                    <h6 class="text-center">COMPLETE THESE FIELDS TO SIGN IN ELSE REGISTER</h6>
+                    <form class="col-md-10 col-md-offset-1 col-xs-12 col-xs-offset-0">
+                        <div class="form-group">
+                            <input type="text" class="form-control input-lg" id="email" placeholder="Email" ng-model ="email">
+                        </div>
+                        <div class="form-group">
+                            <input type="password" class="form-control input-lg" id="password" placeholder="Password" ng-model="password">
+                        </div>
+                        <div class="form-group">
+                            <button class="btn btn-green btn-lg btn-block" id="login" ng-click="authWithPassword()">Sign In</button>
+                            <span class="pull-right"><a href="#" data-dismiss="modal" data-toggle="modal" data-target="#myModalRegister">Register</a></span><span><a href="#" data-dismiss="modal" data-toggle="modal" data-target="#myModalOne">Need help?</a></span>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <h6 class="text-center"><a href="tel:+447440194567">Privacy is important. If you don't have login details, please contact Amit for details.</a></h6>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--Login Page END
+     ********************************************************************-->
+    <!--Register Page Start
+     ********************************************************************-->
+    <div id="myModalRegister" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                    <h2 class="text-center"><br>Register</h2>
+                </div>
+                <div class="modal-body row">
+                    <h6 class="text-center">Provide your email to register</h6>
+                    <form class="col-md-10 col-md-offset-1 col-xs-12 col-xs-offset-0">
+                        <div class="form-group">
+                            <input type="email" class="form-control input-lg" id="txtEmail" placeholder="Email" ng-model ="email">
+                        </div>
+                        <div class="form-group">
+                            <button class="btn btn-green btn-lg btn-block" data-backdrop="static" type="submit" id="reg" ng-click="createUser()">Register</button>
+                            <span class="pull-right"><a href="#" data-dismiss="modal" data-toggle="modal" data-target="#myModal">Login</a></span><span><a href="#" data-dismiss="modal" data-toggle="modal" data-target="#myModalOne">Need help?</a></span>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <h6 class="text-center"><a href="tel:+447440194567">Privacy is important. If you don't have login details, please contact Amit for details.</a></h6>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--Under Construction Page Start
+     ********************************************************************-->
+    <div id="myModalOne" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                    <h2 class="text-center"><br>The Site is Under Construction. </h2>
+                </div>
+                <div class="modal-body row">
+                    <h6 class="text-center">If you wish to see the example projects, please get in touch with me or visit my github account. </h6>
+
+                    <div>
+                        <button class="btn btn-danger btn-lg btn-block" data-dismiss="modal" href="#section1">Go Back</button>
+                    </div>
+
+                </div>
+                <div class="modal-footer">
+                    <h6 class="text-center"><a href="tel:+447440194567">Privacy is important. If you don't have login details, please contact Amit for details.</a></h6>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--Under Construction Page End!
+     ********************************************************************-->
+    <!--Wish to download resume Page Start
+     ********************************************************************-->
+    <div id="myModalTwo" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                    <h2 class="text-center"><br>You will need password for the download. </h2>
+                </div>
+                <div class="modal-body row">
+                    <h6 class="text-center">If you wish to download the resume, please Login or contact Amit Sinha. </h6>
+
+                    <div>
+                        <button class="btn btn-blue btn-lg btn-block" data-dismiss="modal" href="#section1">Thanks!</button>
+                    </div>
+
+                </div>
+                <div class="modal-footer">
+                    <h6 class="text-center"><a href="tel:+447440194567">Privacy is important. If you don't have login details, please contact Amit for details.</a></h6>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--Wish to download resume Page END
+     ********************************************************************-->
+    <!--Register Page End!
+     ********************************************************************-->
+    <!--<div id="myModalRegSuccess" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                    <h2 class="text-center"><br>Thanks! </h2>
+                </div>
+                <div class="modal-body row">
+                    <h6 class="text-center">You must have received an email. Please reset your password using the temporary password.</h6>
+
+                    <div>
+                        <button class="btn btn-green btn-lg btn-block" data-dismiss="modal" href="#section1"> This process help us with the email verification. </button>
+                    </div>
+                    <br>
+                    <form class="col-md-10 col-md-offset-1 col-xs-12 col-xs-offset-0">
+                        <div class="form-group">
+                            <input type="text" class="form-control input-lg" id="txtEmail" placeholder="Email">
+                        </div>
+                        <div class="form-group">
+                            <input type="password" class="form-control input-lg" id="tempPassword" placeholder="Temporary Password">
+                        </div>
+                        <div class="form-group">
+                            <input type="password" class="form-control input-lg" id="newPassword" placeholder="New Password">
+                        </div>
+                        <div class="form-group">
+                            <button class="btn btn-green btn-lg btn-block" id="reset">Submit</button>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <h6 class="text-center"><a href="tel:+447440194567">Privacy is important. If you don't have login details, please contact Amit for details.</a></h6>
+                </div>
+            </div>
+        </div>
+    </div>-->
+<footer class="footer">
+  <div class="container">
+    <p class="text-muted"> <a>© 2016 created with the help of Bootstrap, Angular and firebase - Amit Sinha</a></p>
+  </div>
+</footer>
+</body>
+<script type="text/javascript">
+    ChangeIt();
+</script>
+<script type="text/javascript">
+    $(function () {
+        $('#table').searchable({
+            striped: true,
+            oddRow: {
+                'background-color': '#f5f5f5'
+            },
+            evenRow: {
+                'background-color': '#fff'
+            },
+            searchType: 'fuzzy'
+        });
+
+        $('#searchable-container').searchable({
+            searchField: '#container-search',
+            selector: '.row',
+            childSelector: '.col-xs-4',
+            show: function (elem) {
+                elem.slideDown(100);
+            },
+            hide: function (elem) {
+                elem.slideUp(100);
+            }
+        })
+    });
+</script>
+    <script src='https://cdn.firebase.com/js/client/2.2.4/firebase.js'></script>
+    <script src="https://cdn.firebase.com/libs/angularfire/1.1.3/angularfire.min.js"></script>
+    <script src="public/js/jquery.searchable-1.0.0.min.js"></script>
+    <script src="public/js/jquery.bootstrap-growl.min.js"></script>
+    <script src="public/js/loginAng.js"></script>
+
+</html>
